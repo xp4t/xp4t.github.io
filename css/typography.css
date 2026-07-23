@@ -1,0 +1,53 @@
+/* ============================================================
+   TYPOGRAPHY
+   Display / UI  → Space Mono   (blueprint, technical, engraved)
+   Reading / doc → Spectral     (old documentation serif)
+   Deliberately not Inter / Poppins / Montserrat.
+   ============================================================ */
+
+:root{
+  --f-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --f-doc: 'Spectral', Georgia, 'Times New Roman', serif;
+
+  --step-1: 12px;
+  --step0: 15px;
+  --step1: 18px;
+  --step2: 24px;
+  --step3: 34px;
+  --step4: clamp(38px, 6vw, 64px);
+}
+
+body{
+  font-family: var(--f-doc);
+  font-size: var(--step0);
+  line-height: 1.6;
+}
+
+h1,h2,h3,.mono,
+button, input, .workspace-title, .term-window, .tool-label,
+.ch-label, .nav-rail, .boot-lines, code{
+  font-family: var(--f-mono);
+}
+
+h1{ font-size: var(--step4); line-height: 1.02; letter-spacing: 0.01em; }
+h2.workspace-title{
+  font-size: var(--step2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.workspace-sub{
+  font-family: var(--f-mono);
+  font-size: var(--step-1);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+p{ margin: 0 0 1em 0; }
+
+.eyebrow{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}

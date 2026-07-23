@@ -1,0 +1,37 @@
+{
+  "ov7670": {
+    "name": "OV7670 Camera ASIC — RTL-to-GDS",
+    "kind": "stages",
+    "repo": "https://github.com/xp4t/OV7670-camera-asic",
+    "stages": ["FLOORPLAN", "PLACEMENT", "CTS", "ROUTING", "GDS"],
+    "specs": [
+      "PROCESS   SAED 32nm RVT",
+      "TOOLS     Synopsys DC + ICC2",
+      "TIMING    WNS +8.90ns \u00b7 0 TNS \u00b7 0 hold violations (SS/FF)",
+      "PHYSICAL  LVS clean \u00b7 273 cells \u00b7 855 \u00b5m\u00b2"
+    ]
+  },
+  "intelliwatch": {
+    "name": "IntelliWatch \u2014 Anomaly Detection (FPGA CNN)",
+    "kind": "console",
+    "repo": "https://github.com/xp4t/anomaly_detection_fpga",
+    "rows": [
+      { "label": "TASK", "value": "Real-time surveillance anomaly detection" },
+      { "label": "TARGET", "value": "Zynq SoC \u00b7 DPU" },
+      { "label": "TOOLCHAIN", "value": "Vitis AI \u00b7 PetaLinux" }
+    ],
+    "fps_target": 110,
+    "dpu_util_target": 78
+  },
+  "riscv": {
+    "name": "16-bit RISC-V Processor",
+    "kind": "datapath",
+    "repo": "https://github.com/xp4t/processor_16b",
+    "specs": [
+      "LANGUAGE   Verilog",
+      "VERIFY     Vivado simulation",
+      "MEMORY     256 \u00d7 16 RAM",
+      "STATUS     Instruction execution verified"
+    ]
+  }
+}

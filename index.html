@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rithwik Vallabhan TV — FPGA / SoC / ASIC Engineer</title>
+<meta name="description" content="Rithwik Vallabhan TV — FPGA, SoC and ASIC design engineer. RTL to GDS, Zynq SoC, AXI systems, CNN inference on FPGA fabric.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============ BOOT OVERLAY ============ -->
+  <div id="boot-overlay" aria-hidden="true">
+    <pre class="boot-lines" id="boot-lines"></pre>
+  </div>
+
+  <!-- ============ NAV RAIL ============ -->
+  <nav id="nav-rail" aria-label="Workspace navigation">
+    <a href="#lab" data-target="#lab">LAB</a>
+    <a href="#design-table" data-target="#design-table">DESIGN TABLE</a>
+    <a href="#research-desk" data-target="#research-desk">RESEARCH DESK</a>
+    <a href="#notebook" data-target="#notebook">NOTEBOOK</a>
+    <a href="#publications" data-target="#publications">PUBLICATIONS</a>
+    <a href="#terminal" data-target="#terminal">TERMINAL</a>
+  </nav>
+
+  <!-- ============ LAB ============ -->
+  <section id="lab" class="workspace workspace--blueprint">
+    <div class="workspace-inner">
+      <p class="eyebrow lab-eyebrow boot-reveal" id="reveal-eyebrow">XP4T.SYS &nbsp;·&nbsp; REV 2026.07 &nbsp;·&nbsp; SYSTEM READY</p>
+      <div class="engrave-name" id="engrave-name"><h1>Rithwik Vallabhan TV</h1></div>
+      <p class="role-line boot-reveal" id="reveal-role">FPGA / SoC / ASIC Engineer — Kochi, Kerala</p>
+      <p class="lab-desc boot-reveal" id="reveal-desc">
+        I design and verify digital hardware — from RTL in Verilog and VHDL,
+        through full ASIC back-end flow, to Zynq SoC deployment. Recent work
+        spans CNN inference on FPGA fabric, AXI DMA data-acquisition pipelines,
+        and a complete RTL-to-GDS tapeout in Synopsys ICC2 on 32&nbsp;nm.
+      </p>
+      <div class="lab-meta boot-reveal" id="reveal-meta">
+        <a href="mailto:rithwikvallabhantv@gmail.com">EMAIL</a>
+        <a href="tel:+919188452806">+91 91884 52806</a>
+        <a href="#" id="linkedin-link">LINKEDIN</a>
+        <a href="#" id="github-link">GITHUB</a>
+      </div>
+      <p class="scroll-cue boot-reveal" id="reveal-cue">↓ SCROLL TO ENTER DESIGN TABLE</p>
+    </div>
+  </section>
+
+  <!-- ============ DESIGN TABLE ============ -->
+  <section id="design-table" class="workspace workspace--pcb">
+    <div class="workspace-inner">
+      <h2 class="workspace-title reveal">── DESIGN TABLE ──</h2>
+      <p class="workspace-sub reveal">Hover a trace to preview it — click to open the repo on GitHub.</p>
+
+      <div class="pcb-stage reveal">
+        <svg class="pcb-board" viewBox="-30 -30 680 480" role="img" aria-label="Top-down render of a populated FPGA development board with three highlighted zones representing three projects">
+          <defs>
+            <pattern id="hatch" patternUnits="userSpaceOnUse" width="7" height="7">
+              <path d="M0,7 L7,0" stroke="#1D2E26" stroke-width="1"/>
+            </pattern>
+          </defs>
+
+          <!-- board outline, chamfered top-right corner -->
+          <polygon points="10,10 580,10 610,40 610,410 10,410" fill="none" stroke="#2C4438" stroke-width="1.5"/>
+
+          <!-- copper pour (irregular polygon covering most of board) -->
+          <path d="M22,22 L558,20 L580,48 L590,135 L586,290 L558,398 L205,404 L64,390 L20,338 Z" fill="url(#hatch)" opacity=".42"/>
+          <!-- BGA keepout void under Zynq (no copper pour under BGA) -->
+          <rect x="240" y="152" width="146" height="108" fill="#14201C" opacity=".55"/>
+          <!-- thermal via void cutout near RESET/BOOT area -->
+          <rect x="444" y="338" width="42" height="28" rx="3" fill="#14201C"/>
+
+          <!-- mounting holes -->
+          <g class="mount">
+            <circle class="via-outer" cx="25" cy="25" r="7"/><circle class="via-inner" cx="25" cy="25" r="3"/>
+            <circle class="via-outer" cx="585" cy="35" r="7"/><circle class="via-inner" cx="585" cy="35" r="3"/>
+            <circle class="via-outer" cx="25" cy="395" r="7"/><circle class="via-inner" cx="25" cy="395" r="3"/>
+            <circle class="via-outer" cx="595" cy="395" r="7"/><circle class="via-inner" cx="595" cy="395" r="3"/>
+          </g>
+
+          <!-- fiducials -->
+          <g class="fiducial">
+            <circle cx="25" cy="205" r="3"/><line x1="16" y1="205" x2="34" y2="205"/><line x1="25" y1="196" x2="25" y2="214"/>
+            <circle cx="597" cy="205" r="3"/><line x1="588" y1="205" x2="606" y2="205"/><line x1="597" y1="196" x2="597" y2="214"/>
+          </g>
+
+          <!-- thermal reliefs around power vias -->
+          <circle class="thermal" cx="200" cy="140" r="7"/>
+          <circle class="thermal" cx="438" cy="100" r="7"/>
+
+          <!-- ================================================================
+               U1 — CMV4000 CAMERA SENSOR  (upper-left, +20% vs v1)
+               pad 108×72  centre (97,93)
+               ================================================================ -->
+          <g class="pcb-group" data-project="ov7670">
+            <title>Open OV7670-camera-asic on GitHub</title>
+            <!-- courtyard -->
+            <rect x="38" y="52" width="118" height="82" fill="none" stroke="#2C4438" stroke-width="1" stroke-dasharray="2 2"/>
+            <text class="refdes" x="43" y="51">U1</text>
+            <!-- package body -->
+            <rect class="pad" x="43" y="57" width="108" height="72"/>
+            <!-- in-package labels -->
+            <text class="chip-title" x="97" y="89" text-anchor="middle">CMV4000</text>
+            <text class="chip-part"  x="97" y="103" text-anchor="middle">CAMERA IF</text>
+            <!-- pin stubs — left -->
+            <line class="trace pin-stub" x1="32" y1="73" x2="43" y2="73"/>
+            <line class="trace pin-stub" x1="32" y1="93" x2="43" y2="93"/>
+            <line class="trace pin-stub" x1="32" y1="113" x2="43" y2="113"/>
+            <!-- pin stubs — right -->
+            <line class="trace pin-stub" x1="151" y1="73" x2="162" y2="73"/>
+            <line class="trace pin-stub" x1="151" y1="93" x2="162" y2="93"/>
+            <line class="trace pin-stub" x1="151" y1="113" x2="162" y2="113"/>
+            <!-- decoupling caps (right of package) -->
+            <rect class="passive" x="167" y="60" width="6" height="6"/><text class="refdes" x="167" y="56">C2</text>
+            <rect class="passive" x="167" y="108" width="6" height="6"/>
+            <!-- Camera data bus → Zynq left pins  (main: highlighted on hover) -->
+            <path class="trace" d="M151,93 L200,93 L200,198 L237,198"/>
+            <!-- Camera clock → Zynq left pin -->
+            <path class="trace" d="M151,73 L195,73 L195,173 L237,173"/>
+            <!-- secondary camera bus lane (thin) -->
+            <path class="trace trace-thin" d="M151,113 L178,113 L178,223 L237,223" opacity=".5"/>
+            <!-- CAM CONN feed (left edge → U1) -->
+            <path class="trace trace-thin" d="M-8,93 L32,93" opacity=".5"/>
+            <!-- sub-label: smaller, centred below package -->
+            <text class="zone-label" x="97" y="143" text-anchor="middle" font-size="7">CAMERA SENSOR IF</text>
+          </g>
+
+          <!-- CAM CONN edge connector (left edge) -->
+          <rect class="pad" x="-24" y="78" width="16" height="30"/>
+          <text class="silkscreen-dim" x="-29" y="72">CAM CONN</text>
+
+          <!-- ================================================================
+               RA1 — resistor array on camera→Zynq data bus  (in-line on trace)
+               ================================================================ -->
+          <rect class="passive" x="191" y="83" width="6" height="20"/>
+          <line class="via-inner-line" x1="194" y1="84" x2="194" y2="102"/>
+          <text class="refdes" x="185" y="80">RA1</text>
+
+          <!-- ================================================================
+               U2 — XILINX ZYNQ  (board centre, dominant, +38% vs v1)
+               pad 152×114  centre (313,205)  x=237–389  y=148–262
+               ================================================================ -->
+          <g class="pcb-group" data-project="intelliwatch">
+            <title>Open anomaly_detection_fpga on GitHub</title>
+            <!-- courtyard -->
+            <rect x="232" y="143" width="162" height="124" fill="none" stroke="#2C4438" stroke-width="1" stroke-dasharray="2 2"/>
+            <text class="refdes" x="237" y="142">U2</text>
+            <!-- package body — chamfered top-right corner -->
+            <polygon points="237,148 383,148 389,154 389,262 237,262" fill="#3A5449"/>
+            <!-- inner shadow (depth cue) -->
+            <rect x="240" y="151" width="149" height="111" fill="none" stroke="#1A2C24" stroke-width="3" opacity=".45"/>
+            <!-- chamfer bevel line -->
+            <line x1="383" y1="148" x2="389" y2="154" stroke="#2A3D35" stroke-width="1.2"/>
+            <!-- die square (darker) -->
+            <rect x="289" y="183" width="48" height="44" fill="#1D3028" stroke="#2E4A3C" stroke-width="1"/>
+            <!-- pin-1 marker (top-left) -->
+            <circle cx="242" cy="153" r="2.5" fill="#A8C6B5" opacity=".7"/>
+            <!-- in-package chip labels -->
+            <text class="chip-title" x="313" y="200" text-anchor="middle">XILINX ZYNQ</text>
+            <text class="chip-part"  x="313" y="220" text-anchor="middle">XC7Z020-CLG400</text>
+            <!-- pin stubs — left (4 pins) -->
+            <line class="trace pin-stub" x1="231" y1="173" x2="237" y2="173"/>
+            <line class="trace pin-stub" x1="231" y1="198" x2="237" y2="198"/>
+            <line class="trace pin-stub" x1="231" y1="223" x2="237" y2="223"/>
+            <line class="trace pin-stub" x1="231" y1="248" x2="237" y2="248"/>
+            <!-- pin stubs — right (4 pins) -->
+            <line class="trace pin-stub" x1="389" y1="173" x2="395" y2="173"/>
+            <line class="trace pin-stub" x1="389" y1="198" x2="395" y2="198"/>
+            <line class="trace pin-stub" x1="389" y1="223" x2="395" y2="223"/>
+            <line class="trace pin-stub" x1="389" y1="248" x2="395" y2="248"/>
+            <!-- pin stubs — top (3 pins: JTAG / DDR / CLK) -->
+            <line class="trace pin-stub" x1="265" y1="142" x2="265" y2="148"/>
+            <line class="trace pin-stub" x1="313" y1="142" x2="313" y2="148"/>
+            <line class="trace pin-stub" x1="361" y1="142" x2="361" y2="148"/>
+            <!-- pin stubs — bottom (3 pins: AXI-CPU / UART / misc) -->
+            <line class="trace pin-stub" x1="255" y1="262" x2="255" y2="268"/>
+            <line class="trace pin-stub" x1="313" y1="262" x2="313" y2="268"/>
+            <line class="trace pin-stub" x1="351" y1="262" x2="351" y2="268"/>
+            <!-- bulk decoupling caps (right of package) -->
+            <rect class="passive" x="400" y="168" width="6" height="6"/><text class="refdes" x="400" y="164">C4</text>
+            <rect class="passive" x="400" y="218" width="6" height="6"/>
+            <!-- Zynq → DDR (right side, L-shaped bus routes) -->
+            <path class="trace" d="M389,173 L410,173 L410,156 L416,156"/>
+            <path class="trace" d="M389,198 L406,198 L406,168 L416,168"/>
+            <path class="trace trace-thin" d="M389,223 L396,223 L396,290 L488,290" opacity=".45"/>
+            <!-- Zynq → CPU (AXI bus, bottom-left exit) — primary route highlighted on hover -->
+            <path class="trace" d="M255,262 L255,280 L195,280 L195,310 L162,310"/>
+            <path class="trace trace-thin" d="M313,262 L313,285 L212,285 L212,340 L162,340" opacity=".5"/>
+            <!-- 3V3 power rail enters Zynq from top-right (from PMIC via FB1) -->
+            <path class="trace trace-power" d="M389,148 L395,148 L395,100 L438,100 L438,60 L477,60" opacity=".65"/>
+            <!-- sub-label below package -->
+            <text class="zone-label" x="313" y="278" text-anchor="middle" font-size="7">DPU / AI ACCEL</text>
+          </g>
+
+          <!-- ================================================================
+               JTAG → Zynq top (thin, secondary trace — runs from header to top pin)
+               ================================================================ -->
+          <path class="trace trace-thin" d="M265,10 L265,30 L265,142" opacity=".3"/>
+
+          <!-- ================================================================
+               DDR (U5) — right of Zynq  x=416–478  y=138–174
+               ================================================================ -->
+          <rect class="pad" x="416" y="138" width="62" height="36"/>
+          <text class="refdes" x="416" y="134">U5</text>
+          <text class="zone-label" x="447" y="187" text-anchor="middle" font-size="8">DDR</text>
+          <!-- pin stubs left -->
+          <line class="trace pin-stub" x1="410" y1="150" x2="416" y2="150"/>
+          <line class="trace pin-stub" x1="410" y1="162" x2="416" y2="162"/>
+          <!-- pin stubs right -->
+          <line class="trace pin-stub" x1="478" y1="150" x2="484" y2="150"/>
+          <line class="trace pin-stub" x1="478" y1="162" x2="484" y2="162"/>
+          <!-- DDR right-side thin traces (address/data to edge) -->
+          <path class="trace trace-thin" d="M484,150 L510,150 L510,135" opacity=".4"/>
+          <!-- DDR decoupling -->
+          <rect class="passive" x="418" y="182" width="6" height="6"/><text class="refdes" x="415" y="178">C10</text>
+          <rect class="passive" x="430" y="182" width="6" height="6"/>
+
+          <!-- ================================================================
+               PMIC CLUSTER (top-right corner) — FB1, L1, U4, C7/C8/C9
+               ================================================================ -->
+          <!-- Ferrite bead FB1 (VIN filter, series before PMIC) -->
+          <rect class="passive" x="455" y="53" width="22" height="10"/>
+          <text class="refdes" x="455" y="49">FB1</text>
+          <!-- Power inductor L1 (SW node) -->
+          <rect class="passive" x="464" y="80" width="28" height="12"/>
+          <text class="refdes" x="464" y="76">L1</text>
+          <!-- PMIC U4 -->
+          <rect class="pad" x="500" y="44" width="52" height="30"/>
+          <text class="refdes" x="500" y="40">U4</text>
+          <text class="zone-label" x="526" y="86" text-anchor="middle" font-size="7">PMIC</text>
+          <line class="trace pin-stub" x1="494" y1="54" x2="500" y2="54"/>
+          <line class="trace pin-stub" x1="494" y1="64" x2="500" y2="64"/>
+          <line class="trace pin-stub" x1="552" y1="54" x2="558" y2="54"/>
+          <line class="trace pin-stub" x1="552" y1="64" x2="558" y2="64"/>
+          <text class="pinlabel" x="489" y="42">3V3</text>
+          <text class="pinlabel" x="554" y="42">VIN</text>
+          <!-- Bulk output caps -->
+          <rect class="passive" x="472" y="92" width="8" height="8"/><text class="refdes" x="470" y="88">C7</text>
+          <rect class="passive" x="490" y="92" width="8" height="8"/><text class="refdes" x="488" y="88">C8</text>
+          <rect class="passive" x="540" y="92" width="8" height="8"/><text class="refdes" x="538" y="88">C9</text>
+          <!-- VIN power rail: USB-C (bottom) → up right edge → PMIC VIN pin -->
+          <path class="trace trace-power" d="M375,410 L375,395 L562,395 L562,59 L552,59" opacity=".72"/>
+          <!-- PMIC 3V3 out → FB1 → power rail → Zynq -->
+          <path class="trace" d="M500,59 L477,59"/>
+          <!-- L1 SW trace from PMIC -->
+          <path class="trace trace-thin" d="M500,69 L480,69 L480,80" opacity=".5"/>
+
+          <!-- crystal oscillator (between JTAG header and Zynq) -->
+          <rect class="passive" x="272" y="115" width="26" height="12"/>
+          <text class="refdes" x="272" y="111">X1</text>
+          <text class="silkscreen-dim" x="272" y="140" font-size="7">50MHz</text>
+          <!-- X1 → Zynq top CLK pin -->
+          <path class="trace trace-thin" d="M285,115 L285,142" opacity=".45"/>
+
+          <!-- status LEDs (top-right, near PMIC) -->
+          <circle class="led" cx="508" cy="110" r="3"/>
+          <text class="pinlabel" x="516" y="113">PWR</text>
+          <circle class="led led--stat" cx="508" cy="125" r="3"/>
+          <text class="pinlabel" x="516" y="128">STAT</text>
+
+          <!-- scattered passives for board density -->
+          <rect class="passive" x="360" y="115" width="14" height="6"/><text class="refdes" x="360" y="111">R3</text>
+          <rect class="passive" x="484" y="298" width="10" height="10"/><text class="refdes" x="481" y="294">R4</text>
+          <rect class="passive" x="234" y="272" width="10" height="10"/><text class="refdes" x="231" y="268">C5</text>
+          <rect class="passive" x="114" y="198" width="14" height="6"/><text class="refdes" x="114" y="194">R5</text>
+
+          <!-- ================================================================
+               U3 — RV32I CPU  (lower-left, +20% vs v1)
+               pad 84×84  centre (120,329)  x=78–162  y=287–371
+               ================================================================ -->
+          <g class="pcb-group" data-project="riscv">
+            <title>Open processor_16b on GitHub</title>
+            <!-- courtyard -->
+            <rect x="73" y="282" width="94" height="94" fill="none" stroke="#2C4438" stroke-width="1" stroke-dasharray="2 2"/>
+            <text class="refdes" x="78" y="281">U3</text>
+            <!-- package body -->
+            <rect class="pad" x="78" y="287" width="84" height="84"/>
+            <!-- in-package labels -->
+            <text class="chip-title" x="120" y="325" text-anchor="middle">RV32I</text>
+            <text class="chip-part"  x="120" y="340" text-anchor="middle">CPU</text>
+            <!-- pin stubs — top -->
+            <line class="trace pin-stub" x1="100" y1="281" x2="100" y2="287"/>
+            <line class="trace pin-stub" x1="120" y1="281" x2="120" y2="287"/>
+            <line class="trace pin-stub" x1="140" y1="281" x2="140" y2="287"/>
+            <!-- pin stubs — bottom -->
+            <line class="trace pin-stub" x1="100" y1="371" x2="100" y2="377"/>
+            <line class="trace pin-stub" x1="120" y1="371" x2="120" y2="377"/>
+            <line class="trace pin-stub" x1="140" y1="371" x2="140" y2="377"/>
+            <!-- pin stubs — right (AXI from Zynq) -->
+            <line class="trace pin-stub" x1="162" y1="310" x2="168" y2="310"/>
+            <line class="trace pin-stub" x1="162" y1="340" x2="168" y2="340"/>
+            <!-- decoupling cap (left of package) -->
+            <rect class="passive" x="60" y="300" width="6" height="6"/><text class="refdes" x="55" y="296">C6</text>
+            <!-- CLK input dot -->
+            <circle class="clk-dot" cx="120" cy="274" r="2.5"/>
+            <text class="refdes" x="125" y="273">CLK</text>
+            <!-- CLK trace from Zynq bottom left area -->
+            <path class="trace trace-thin" d="M237,248 L205,248 L205,270 L120,270 L120,274" opacity=".35"/>
+            <!-- CPU → UART header (bottom exit) — primary animated route -->
+            <path class="trace" d="M120,371 L120,390 L265,390 L265,416"/>
+            <path class="trace trace-thin" d="M100,371 L100,395 L256,395 L256,416" opacity=".5"/>
+            <!-- sub-label: below package -->
+            <text class="zone-label" x="165" y="375" font-size="7">16-BIT CPU CORE</text>
+          </g>
+
+          <!-- HDMI connector (right edge) -->
+          <rect class="pad" x="608" y="178" width="18" height="30"/>
+          <text class="silkscreen-dim" x="628" y="173" transform="rotate(90 628 173)">HDMI</text>
+          <!-- ETH PHY connector (right edge) -->
+          <rect class="pad" x="608" y="268" width="18" height="30"/>
+          <text class="silkscreen-dim" x="628" y="263" transform="rotate(90 628 263)">ETH PHY</text>
+          <!-- HDMI/ETH traces from Zynq right -->
+          <path class="trace trace-thin" d="M395,223 L560,223 L600,193" opacity=".38"/>
+          <path class="trace trace-thin" d="M395,248 L560,248 L600,283" opacity=".38"/>
+
+          <!-- JTAG programming header (above board, top-centre) -->
+          <g class="header">
+            <text class="silkscreen-dim" x="262" y="-22">JTAG</text>
+            <rect class="pad" x="262" y="-14" width="6" height="6"/>
+            <rect class="pad" x="276" y="-14" width="6" height="6"/>
+            <rect class="pad" x="290" y="-14" width="6" height="6"/>
+            <rect class="pad" x="304" y="-14" width="6" height="6"/>
+            <rect class="pad" x="318" y="-14" width="6" height="6"/>
+            <line class="trace" x1="265" y1="-8" x2="265" y2="10"/>
+            <line class="trace" x1="279" y1="-8" x2="279" y2="10"/>
+            <line class="trace" x1="293" y1="-8" x2="293" y2="10"/>
+            <line class="trace" x1="307" y1="-8" x2="307" y2="10"/>
+            <line class="trace" x1="321" y1="-8" x2="321" y2="10"/>
+            <text class="pinlabel" x="256" y="24">TCK TMS TDI TDO GND</text>
+          </g>
+
+          <!-- UART / power header (below board) -->
+          <g class="header">
+            <text class="silkscreen-dim" x="252" y="448">UART / PWR</text>
+            <rect class="pad" x="256" y="416" width="6" height="6"/>
+            <rect class="pad" x="270" y="416" width="6" height="6"/>
+            <rect class="pad" x="284" y="416" width="6" height="6"/>
+            <rect class="pad" x="298" y="416" width="6" height="6"/>
+            <rect class="pad" x="312" y="416" width="6" height="6"/>
+            <line class="trace" x1="259" y1="410" x2="259" y2="416"/>
+            <line class="trace" x1="273" y1="410" x2="273" y2="416"/>
+            <line class="trace" x1="287" y1="410" x2="287" y2="416"/>
+            <line class="trace" x1="301" y1="410" x2="301" y2="416"/>
+            <line class="trace" x1="315" y1="410" x2="315" y2="416"/>
+            <text class="pinlabel" x="253" y="406">VIN 3V3 GND TX RX</text>
+          </g>
+
+          <!-- USB-C (below board) -->
+          <rect class="pad" x="360" y="410" width="30" height="16"/>
+          <text class="silkscreen-dim" x="358" y="440">USB-C</text>
+
+          <!-- RESET / BOOT buttons -->
+          <rect class="passive" x="360" y="380" width="12" height="12"/><text class="pinlabel" x="358" y="376">RESET</text>
+          <rect class="passive" x="380" y="380" width="12" height="12"/><text class="pinlabel" x="378" y="376">BOOT</text>
+
+          <!-- via stitching -->
+          <g class="via">
+            <!-- camera-to-Zynq route -->
+            <circle class="via-outer" cx="200" cy="140" r="3"/><circle class="via-inner" cx="200" cy="140" r="1.2"/>
+            <!-- Zynq-to-CPU AXI route -->
+            <circle class="via-outer" cx="255" cy="280" r="2.4"/><circle class="via-inner" cx="255" cy="280" r="1"/>
+            <circle class="via-outer" cx="195" cy="305" r="2.4"/><circle class="via-inner" cx="195" cy="305" r="1"/>
+            <!-- power rail via -->
+            <circle class="via-outer" cx="438" cy="100" r="3"/><circle class="via-inner" cx="438" cy="100" r="1.2"/>
+            <!-- DDR area -->
+            <circle class="via-outer" cx="410" cy="168" r="2.4"/><circle class="via-inner" cx="410" cy="168" r="1"/>
+            <circle class="via-outer" cx="422" cy="128" r="2.4"/><circle class="via-inner" cx="422" cy="128" r="1"/>
+            <!-- CPU area -->
+            <circle class="via-outer" cx="90" cy="358" r="2.4"/><circle class="via-inner" cx="90" cy="358" r="1"/>
+            <circle class="via-outer" cx="96" cy="382" r="2.4"/><circle class="via-inner" cx="96" cy="382" r="1"/>
+            <!-- left-edge ground stitching -->
+            <circle class="via-outer" cx="20" cy="150" r="2"/><circle class="via-inner" cx="20" cy="150" r=".8"/>
+            <circle class="via-outer" cx="20" cy="175" r="2"/><circle class="via-inner" cx="20" cy="175" r=".8"/>
+            <circle class="via-outer" cx="20" cy="250" r="2"/><circle class="via-inner" cx="20" cy="250" r=".8"/>
+            <circle class="via-outer" cx="20" cy="275" r="2"/><circle class="via-inner" cx="20" cy="275" r=".8"/>
+            <!-- right-edge stitching -->
+            <circle class="via-outer" cx="595" cy="120" r="2"/><circle class="via-inner" cx="595" cy="120" r=".8"/>
+            <circle class="via-outer" cx="595" cy="300" r="2"/><circle class="via-inner" cx="595" cy="300" r=".8"/>
+            <circle class="via-outer" cx="595" cy="325" r="2"/><circle class="via-inner" cx="595" cy="325" r=".8"/>
+            <!-- board-corner stitching -->
+            <circle class="via-outer" cx="130" cy="20" r="2"/><circle class="via-inner" cx="130" cy="20" r=".8"/>
+            <circle class="via-outer" cx="400" cy="20" r="2"/><circle class="via-inner" cx="400" cy="20" r=".8"/>
+            <circle class="via-outer" cx="130" cy="402" r="2"/><circle class="via-inner" cx="130" cy="402" r=".8"/>
+            <circle class="via-outer" cx="450" cy="402" r="2"/><circle class="via-inner" cx="450" cy="402" r=".8"/>
+            <!-- additional DDR via cluster -->
+            <circle class="via-outer" cx="502" cy="122" r="2.4"/><circle class="via-inner" cx="502" cy="122" r="1"/>
+            <circle class="via-outer" cx="487" cy="110" r="2"/><circle class="via-inner" cx="487" cy="110" r=".8"/>
+          </g>
+
+          <!-- one-shot pulses — paths updated to match new trace coordinates -->
+          <circle class="signal-pulse" data-project="ov7670" r="4" style="offset-path:path('M151,93 L200,93 L200,198 L237,198'); offset-rotate:0deg;"></circle>
+          <circle class="signal-pulse" data-project="intelliwatch" r="4" style="offset-path:path('M255,262 L255,280 L195,280 L195,310 L162,310'); offset-rotate:0deg;"></circle>
+          <circle class="signal-pulse" data-project="riscv" r="4" style="offset-path:path('M120,371 L120,390 L265,390 L265,416'); offset-rotate:0deg;"></circle>
+
+          <!-- test points -->
+          <circle class="testpoint-ring" cx="565" cy="20" r="6"/>
+          <text class="testpoint-label" x="553" y="10">TP1</text>
+          <circle class="testpoint-ring" cx="565" cy="385" r="6"/>
+          <text class="testpoint-label" x="553" y="375">TP2</text>
+
+          <!-- title block — bottom-right, 15px line spacing for breathing room -->
+          <text class="silkscreen" x="596" y="366" text-anchor="end">RV-TV BOARD · REV A</text>
+          <text class="silkscreen" x="596" y="381" text-anchor="end">DESIGNED IN KERALA</text>
+          <text class="silkscreen" x="596" y="398" text-anchor="end" font-size="10.5" fill="#6A9175">RITHWIK LABS · 2026</text>
+
+          <!-- manufacturing legend — bottom-left, 13px line spacing -->
+          <text class="mfg-text" x="16" y="372">FR4 · 1.6mm · 4-LAYER · HASL</text>
+          <text class="mfg-text" x="16" y="385">RoHS · 94V-0</text>
+          <text class="mfg-text" x="16" y="398">SN:000126 · FAB 2026</text>
+        </svg>
+
+
+        <div>
+          <div class="project-tabs" id="project-tabs">
+            <button data-project="ov7670" class="active">OV7670 CAMERA ASIC <span class="ext">↗</span></button>
+            <button data-project="intelliwatch">INTELLIWATCH <span class="ext">↗</span></button>
+            <button data-project="riscv">16-BIT RISC-V CPU <span class="ext">↗</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-detail reveal" id="project-detail">
+        <!-- populated by js/projects.js -->
+      </div>
+
+      <div class="utility-modules reveal">
+        <p class="workspace-sub" style="margin-bottom:16px;">Also on the bench — smaller utility repos.</p>
+        <div class="util-grid">
+          <a class="util-chip" href="https://github.com/xp4t/multi-fpga-xsdb-programming" target="_blank" rel="noopener">
+            <span class="util-name">multi-fpga-xsdb-programming ↗</span>
+            <span class="util-desc">Automated XSDB workflow to select, program and run the correct FPGA when several boards share one JTAG chain.</span>
+          </a>
+          <a class="util-chip" href="https://github.com/xp4t/vitis-ai-tf2-pytorch-gpu-docker-fix" target="_blank" rel="noopener">
+            <span class="util-name">vitis-ai-tf2-pytorch-gpu-docker-fix ↗</span>
+            <span class="util-desc">Fix for TensorFlow 2 / PyTorch GPU Docker build issues on Vitis AI environments.</span>
+          </a>
+          <a class="util-chip" href="https://github.com/xp4t/vai_pt_archiver" target="_blank" rel="noopener">
+            <span class="util-name">vai_pt_archiver ↗</span>
+            <span class="util-desc">Compiles and packages Vitis-AI PyTorch-ResNet18 inference tests into self-contained archives for Xilinx boards.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH DESK ============ -->
+  <section id="research-desk" class="workspace workspace--metal">
+    <div class="workspace-inner">
+      <h2 class="workspace-title reveal">── RESEARCH DESK ──</h2>
+      <p class="workspace-sub reveal">A toolbox, not a percentage bar. Pick a tool up.</p>
+
+      <div class="pegboard reveal" id="pegboard">
+        <button class="tool-label" data-tool="verilog">Verilog</button>
+        <button class="tool-label" data-tool="sverilog">SystemVerilog</button>
+        <button class="tool-label" data-tool="vhdl">VHDL</button>
+        <button class="tool-label" data-tool="vivado">Vivado / Vitis</button>
+        <button class="tool-label" data-tool="vitisai">Vitis AI</button>
+        <button class="tool-label" data-tool="synopsys">Synopsys DC + ICC2</button>
+        <button class="tool-label" data-tool="pt">PrimeTime</button>
+        <button class="tool-label" data-tool="oss">Genus / Yosys / OpenROAD</button>
+        <button class="tool-label" data-tool="linux">Linux / Python / TCL / C</button>
+      </div>
+
+      <div class="tool-drawer" id="tool-drawer">
+        <h3 id="tool-drawer-title">—</h3>
+        <p id="tool-drawer-body">Select a tool above.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOTEBOOK ============ -->
+  <section id="notebook" class="workspace workspace--paper">
+    <div class="workspace-inner">
+      <h2 class="workspace-title reveal">── NOTEBOOK ──</h2>
+      <p class="workspace-sub reveal">Turn the page.</p>
+
+      <div class="notebook-stack reveal" id="notebook-stack">
+        <article class="page active" data-page="1">
+          <h3>NIELIT Calicut</h3>
+          <p class="p-role">Project Engineer · Aug 2025 – Present</p>
+          <p class="body-text">
+            Delivering FPGA training and faculty development programmes under the
+            MeitY C2S (SMART Lab) initiative. Automating course-management workflows
+            in Python. Published work on deploying PyTorch models to Xilinx FPGAs
+            via Vitis AI.
+          </p>
+        </article>
+        <article class="page" data-page="2">
+          <h3>Indian Institute of Astrophysics</h3>
+          <p class="p-role">FPGA Design Intern · Feb – Aug 2025</p>
+          <p class="body-text">
+            Designed RTL IP in VHDL for CMV4000-based image acquisition on a Zynq
+            SoC. Built a continuous high-speed capture pipeline across AXI DMA, PS
+            DDR and BRAM, with embedded C control software in Vitis. Validated
+            timing and signal integrity with an MSO.
+          </p>
+        </article>
+        <article class="page" data-page="3">
+          <h3>Adi Shankara Institute of Engineering &amp; Technology</h3>
+          <p class="p-role">B.Tech, Electronics &amp; Communication Engineering · Nov 2021 – Apr 2025</p>
+          <p class="body-text">
+            Also served as Chairman of the Association for ECE Students (2024–25)
+            and Quality &amp; Operations Lead at the Innovation and Entrepreneurship
+            Development Cell (2024).
+          </p>
+        </article>
+      </div>
+
+      <div class="page-controls">
+        <button id="page-prev">‹ PREV</button>
+        <span id="page-indicator">01 / 03</span>
+        <button id="page-next">NEXT ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <section id="publications" class="workspace workspace--paper2">
+    <div class="workspace-inner">
+      <h2 class="workspace-title reveal">── PUBLICATIONS ──</h2>
+      <p class="workspace-sub reveal">Click a paper to unfold it.</p>
+
+      <div class="paper-shelf reveal">
+
+        <!-- ── Paper 1: PyTorch → FPGA ── -->
+        <div class="paper" data-pub="1">
+          <button class="paper-face" aria-expanded="false">
+            <span class="p-title">An End-to-End Methodology for Deploying PyTorch Models on Xilinx FPGAs: A VCOR Case Study</span>
+            <span class="p-venue">Published<br>CIPHER 2026<br><br>DOI<br>10.1109/CIPHER70417<br>.2026.11523992</span>
+            <span class="p-authors">Rithwik Vallabhan TV &nbsp;·&nbsp; 2026 International Conference on Intelligent Processing, Hardware, Electronics, and Radio Systems (CIPHER)</span>
+          </button>
+          <div class="paper-fold">
+            <div class="paper-fold-inner">
+              <span class="abstract-tag">Abstract</span>
+              <span class="abstract-text">This paper presents an end-to-end workflow for deploying Artificial Intelligence (AI) and Machine Learning (ML) applications on Xilinx Zynq UltraScale+ Field Programmable Gate Arrays (FPGAs), with a focus on the ZCU104 evaluation board. Using the Vitis-AI 3.5 stack, we implement a ResNet-18 Convolutional Neural Network (CNN) trained on the Kaggle Vehicle Color Recognition (VCOR) dataset. The approach spans the entire development pipeline: configuring the host system via Docker, training the network in PyTorch, quantizing the model from floating-point to INT8, compiling the graph for the Deep Learning Processor Unit (DPU), and finally deploying the application on the target platform. We discuss practical implementation issues such as Docker setup, handling cross-compilation artifacts, and configuring IP networking. Experimental evaluation on the ZCU104 shows a maximum inference throughput of 421.05 FPS and a Top-5 accuracy of 99.0%, demonstrating the suitability of the Vitis-AI flow for edge-oriented computer vision workloads.</span>
+
+              <dl class="paper-meta">
+                <div><dt>Keywords</dt><dd>FPGA<br>Vitis-AI 3.5<br>ResNet-18<br>INT8<br>DPU<br>ZCU104<br>PyTorch</dd></div>
+                <div><dt>Venue</dt><dd>CIPHER 2026<br>13–15 Feb 2026<br>Kochi, India</dd></div>
+                <div><dt>Added to Xplore</dt><dd>21 May 2026</dd><dt style="margin-top:8px">Pages</dt><dd>1–6</dd></div>
+                <div><dt>DOI</dt><dd>10.1109/CIPHER70417<br>.2026.11523992</dd><dt style="margin-top:8px">e-ISBN</dt><dd>979-8-3315-5184-1</dd></div>
+              </dl>
+
+              <div class="paper-links">
+                <a href="https://ieeexplore.ieee.org/document/11523992/" target="_blank" rel="noopener">IEEE Xplore ↗</a>
+                <span class="pl-sep">·</span>
+                <a href="https://doi.org/10.1109/CIPHER70417.2026.11523992" target="_blank" rel="noopener">DOI ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Paper 2: Seismic Elephant Detection ── -->
+        <div class="paper" data-pub="2">
+          <button class="paper-face" aria-expanded="false">
+            <span class="p-title">Seismic Spectrogram Based Elephant Detection System</span>
+            <span class="p-venue">Published<br>ICACC 2024<br><br>DOI<br>10.1109/ICACC63692<br>.2024.10845525</span>
+            <span class="p-authors">Rithwik Vallabhan TV &nbsp;·&nbsp; IEEE International Conference on Advances in Computing and Communications</span>
+          </button>
+          <div class="paper-fold">
+            <div class="paper-fold-inner">
+              <span class="abstract-tag">Abstract</span>
+              <span class="abstract-text">This paper presents the design, development, and implementation of a real-time seismic-based elephant detection system aimed at mitigating human-elephant conflicts. The system leverages geophones to detect seismic infrasound signals produced by elephant movements. A low-noise amplifier conditions the weak seismic signals, which are then digitized and processed using an Arduino-based microcontroller. Advanced signal processing techniques, including spectral analysis and feature extraction, are employed to distinguish elephant rumbles from background noise such as environmental vibrations. The system provides early-warning capabilities through audible alarms and SMS alerts, offering immediate notification to authorities and local communities. The proposed detection mechanism demonstrates high sensitivity and specificity, making it an effective solution for both real-time monitoring and data collection for long-term conservation efforts. The system's low-cost, energy-efficient design makes it suitable for deployment in remote wildlife habitats, contributing to sustainable conservation practices and enhancing human safety in areas prone to wildlife intrusions.</span>
+
+              <dl class="paper-meta">
+                <div><dt>Keywords</dt><dd>Seismic detection<br>Geophone<br>Infrasound<br>Arduino<br>Spectral analysis<br>Human-elephant conflict</dd></div>
+                <div><dt>Venue</dt><dd>ICACC 2024<br>6–8 Nov 2024<br>Kochi, India</dd></div>
+                <div><dt>Added to Xplore</dt><dd>22 Jan 2025</dd><dt style="margin-top:8px">Pages</dt><dd>1–6</dd></div>
+                <div><dt>DOI</dt><dd>10.1109/ICACC63692<br>.2024.10845525</dd><dt style="margin-top:8px">e-ISBN</dt><dd>979-8-3503-7913-6</dd></div>
+              </dl>
+
+              <div class="paper-links">
+                <a href="https://ieeexplore.ieee.org/document/10845525" target="_blank" rel="noopener">IEEE Xplore ↗</a>
+                <span class="pl-sep">·</span>
+                <a href="https://doi.org/10.1109/ICACC63692.2024.10845525" target="_blank" rel="noopener">DOI ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TERMINAL ============ -->
+  <section id="terminal" class="workspace workspace--terminal">
+    <div class="workspace-inner">
+      <h2 class="workspace-title reveal">── TERMINAL ──</h2>
+      <div class="term-window reveal">
+        <div class="term-bar"><span></span><span></span><span></span><span class="term-title">xp4t.sys</span></div>
+        <div class="term-body" id="term-body"></div>
+        <div class="term-input-row">
+          <span class="term-prompt">$</span>
+          <input id="term-input" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal command input" placeholder="type a command…">
+        </div>
+      </div>
+      <p class="term-hint">Type <code>help</code> for commands &nbsp;·&nbsp; <code>↑/↓</code> history &nbsp;·&nbsp; <code>tab</code> to autocomplete</p>
+    </div>
+  </section>
+
+  <footer class="site-foot">© 2026 RITHWIK VALLABHAN TV — RITHWIK.IS-A.DEV</footer>
+
+  <div id="konami-banner">ENGINEERING SANDBOX UNLOCKED — you found the Konami code.</div>
+
+  <script src="js/main.js"></script>
+  <script src="js/blueprint.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/terminal.js"></script>
+</body>
+</html>

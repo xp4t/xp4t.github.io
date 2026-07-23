@@ -1,0 +1,21 @@
+@media (max-width: 860px){
+  .pcb-stage{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px){
+  #nav-rail{
+    top:auto; bottom:0; left:0; right:0;
+    flex-direction:row; border-left:none; border-top:1px solid var(--blueprint-line);
+    overflow-x:auto;
+  }
+  #nav-rail a{
+    writing-mode: horizontal-tb;
+    padding: 12px 14px;
+    border-bottom:none; border-right:1px solid var(--blueprint-line);
+    white-space:nowrap;
+  }
+  .workspace{ padding: 60px 18px 70px; }
+  h1{ font-size: clamp(30px, 9vw, 44px); }
+  .pegboard{ grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); }
+  .notebook-stack{ min-height: 460px; }
+}
