@@ -61,10 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bootLines.textContent = bootLines.textContent.slice(0, barLineIndex) + bar + "  " + pct + "%";
         if (pct >= 100) {
           clearInterval(iv);
-          setTimeout(() => {
-            bootLines.textContent += "\nSYSTEM READY";
-            setTimeout(finishBoot, 500);
-          }, 250);
+          setTimeout(finishBoot, 350);
         }
       }, 110);
     };
