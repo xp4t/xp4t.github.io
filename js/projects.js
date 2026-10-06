@@ -37,6 +37,30 @@ const PROJECTS_FALLBACK = {
       "MEMORY     256 × 16 RAM",
       "STATUS     Instruction execution verified"
     ]
+  },
+  "rtl2gdsagi": {
+    "name": "rtl2gdsagi — RTL-to-GDS Automation",
+    "kind": "details",
+    "repo": "https://github.com/xp4t/rtl2gdsagi",
+    "specs": [
+      "FLOW      Yosys → OpenSTA → OpenLane → KLayout",
+      "PDK       SKY130",
+      "REPAIR    Claude-assisted RTL fixes, SDC/TCL generation and failure analysis",
+      "CHECKS    Fixed two DRC/LVS false-pass bugs with regression tests",
+      "TESTING   11-module OV7670 fixture · 37 passing tests (resume milestone)"
+    ]
+  },
+  "fpga_playground": {
+    "name": "FPGA Playground",
+    "kind": "details",
+    "repo": "https://github.com/xp4t/fpga-playground",
+    "specs": [
+      "WORKBENCH Edit Verilog, synthesize, simulate and export Artix-7 bitstreams",
+      "BOARDS    Basys 3 · Nexys A7 100T · Arty A7 100T",
+      "TOOLS     Yosys · Icarus Verilog · open XC7 or Vivado",
+      "PREVIEW   Virtual switches, buttons, LEDs and waveforms · CSV export",
+      "BITSTREAM Requires an installed FPGA backend; board preview uses RTL simulation or supported Basys 3 bitstream decoding"
+    ]
   }
 };
 
@@ -96,6 +120,14 @@ function renderDatapath(data) {
   `;
 }
 
+function renderDetails(data) {
+  return `
+    <h3>${data.name}</h3>
+    <div class="spec-lines">${data.specs.join("<br>")}</div>
+    ${repoLink(data)}
+  `;
+}
+
 function renderProject(id) {
   const data = PROJECTS[id];
   const el = document.getElementById("project-detail");
@@ -131,6 +163,8 @@ function renderProject(id) {
       void pulse.offsetWidth; // restart the CSS animation
       pulse.classList.add("run");
     });
+  } else if (data.kind === "details") {
+    el.innerHTML = renderDetails(data);
   }
 }
 

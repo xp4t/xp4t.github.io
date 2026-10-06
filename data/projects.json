@@ -33,5 +33,29 @@
       "MEMORY     256 \u00d7 16 RAM",
       "STATUS     Instruction execution verified"
     ]
+  },
+  "rtl2gdsagi": {
+    "name": "rtl2gdsagi \u2014 RTL-to-GDS Automation",
+    "kind": "details",
+    "repo": "https://github.com/xp4t/rtl2gdsagi",
+    "specs": [
+      "FLOW      Yosys \u2192 OpenSTA \u2192 OpenLane \u2192 KLayout",
+      "PDK       SKY130",
+      "REPAIR    Claude-assisted RTL fixes, SDC/TCL generation and failure analysis",
+      "CHECKS    Fixed two DRC/LVS false-pass bugs with regression tests",
+      "TESTING   11-module OV7670 fixture \u00b7 37 passing tests (resume milestone)"
+    ]
+  },
+  "fpga_playground": {
+    "name": "FPGA Playground",
+    "kind": "details",
+    "repo": "https://github.com/xp4t/fpga-playground",
+    "specs": [
+      "WORKBENCH Edit Verilog, synthesize, simulate and export Artix-7 bitstreams",
+      "BOARDS    Basys 3 \u00b7 Nexys A7 100T \u00b7 Arty A7 100T",
+      "TOOLS     Yosys \u00b7 Icarus Verilog \u00b7 open XC7 or Vivado",
+      "PREVIEW   Virtual switches, buttons, LEDs and waveforms \u00b7 CSV export",
+      "BITSTREAM Requires an installed FPGA backend; board preview uses RTL simulation or supported Basys 3 bitstream decoding"
+    ]
   }
 }
